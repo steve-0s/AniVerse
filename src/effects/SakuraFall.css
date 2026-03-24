@@ -1,0 +1,22 @@
+.sakura-canvas, .sakura-trees-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.samurai-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at center, rgba(40, 10, 10, 0.4) 0%, rgba(10, 5, 5, 0.9) 100%);
+  mix-blend-mode: multiply;
+}
