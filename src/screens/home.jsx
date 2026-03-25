@@ -1,11 +1,15 @@
 import React from 'react'
 import Header from '../components/header.jsx'
+import SpotLight from '../components/spotlight.jsx';
 
 const Home = () => {
     return (
         <main>
             <Header />
-            <h1>homepage</h1>
+            <div className='home'>
+                {/* top 10 this season */}
+                <SpotLight />
+            </div>
         </main>
     )
 }
