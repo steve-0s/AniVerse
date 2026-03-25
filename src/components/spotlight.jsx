@@ -68,8 +68,8 @@ const SpotLight = () => {
                     initial={{ x: direction === 1 ? 100 : -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: 'easeInOut' }}
-                    className='h-[30vw] min-h-[400px] w-auto bg-gray-500 grid grid-cols-1 md:grid-cols-2 gap-0'
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className='h-[30vw] min-h-[400px] w-auto bg-gray-900 grid grid-cols-1 md:grid-cols-2 gap-0'
                 >
                     {/* anime info container */}
                     <div className='max-h-full flex flex-col justify-start items-start gap-4 p-5 bg-black/50 backdrop-blur-sm h-full'>
