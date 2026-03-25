@@ -9,7 +9,7 @@ const Header = () => {
         <div className='shadow-lg px-4 flex flex-items-center bg-black/50 backdrop-blur-sm border-b border-white/20'>
             <div className="flex flex-start items-center gap-2">  
                 <NavLink to="/" className="flex items-center gap-2">
-                    <img src="/public/images/AniVerse-logo.png" alt="Logo" className="h-20" />
+                    <img src="/images/AniVerse-logo.png" alt="Logo" className="h-20" />
                 </NavLink>
                 <nav className="ml-6">
                     <ul className="flex gap-6 text-sm">
