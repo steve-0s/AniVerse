@@ -8,7 +8,7 @@ const Landing = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <main className="relative min-h-screen overflow-hidden px-2 sm:px-6 lg:px-8">
+    <main className="relative min-h-screen overflow-hidden px-2 sm:px-6 lg:px-8 bg-gray-900">
       <SakuraFall />
       <div className="pattern" />
 
