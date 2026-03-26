@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Play, Info, ChevronRight, ChevronLeft } from 'react-feather'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const spotlights = [
     {
@@ -32,6 +33,17 @@ const spotlights = [
 const SpotLight = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(1);
+    const navigate = useNavigate();
+
+    const handleWatchNow = () => {
+        const spotlight = spotlights[currentIndex];
+        navigate(`/anime/${spotlight.id}`);
+    };
+
+    const handleMoreInfo = () => {
+        const spotlight = spotlights[currentIndex];
+        navigate(`/anime/${spotlight.id}`);
+    };
 
     const prevSpotlight = () => {
         setDirection(-1);
@@ -94,11 +106,17 @@ const SpotLight = () => {
                         </div>
 
                         <div className='flex gap-7 mt-auto'>
-                            <button className='flex items-center bg-red-900 text-white px-4 py-2 rounded-md hover:bg-red-800'>
+                            <button
+                                onClick={handleWatchNow}
+                                className='flex items-center bg-red-900 text-white px-4 py-2 rounded-md hover:bg-red-800'
+                            >
                                 <Play size={18} className='mr-2' />
                                 Watch Now
                             </button>
-                            <button className='flex items-center bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600'>
+                            <button
+                                onClick={handleMoreInfo}
+                                className='flex items-center bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600'
+                            >
                                 <Info size={18} className='mr-2' />
                                 More Info
                             </button>

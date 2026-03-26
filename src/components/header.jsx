@@ -13,7 +13,7 @@ const Header = () => {
                 </NavLink>
                 <nav className="ml-6">
                     <ul className="flex gap-6 text-sm">
-                        <NavLink to="/" className={({ isActive }) => isActive ? "text-red-900" : "text-gray-300 hover:text-red-900 transition-colors cursor-pointer"}>
+                        <NavLink to="/home" className={({ isActive }) => isActive ? "text-red-900" : "text-gray-300 hover:text-red-900 transition-colors cursor-pointer"}>
                             Home
                         </NavLink>
 
