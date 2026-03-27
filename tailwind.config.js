@@ -10,3 +10,11 @@ module.exports = {
     },
     plugins: [],
 }
+
+// tailwind.config.js
+module.exports = {
+  // ...
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
+}

@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-const trendingAnime = () => {
+const top10ThisSeason = () => {
     const trendingAnimes = [
         {
             id: 1,
@@ -57,7 +57,7 @@ const trendingAnime = () => {
 
     return (
         <div className='max-h-70'>
-            <h3 className='text-2xl text-red-700 font-bold mb-5 ml-5'>Trending</h3>
+            <h3 className='text-2xl text-red-700 font-bold mb-5 ml-5'>Top 10 This Season</h3>
             <div className='trending overflow-x-auto mt-5 no-scrollbar'>
                 <div className='flex w-max h-70 gap-4 px-5 pb-3 overflow-x-auto'>
                     {trendingAnimes.map((anime) => (
@@ -78,5 +78,5 @@ const trendingAnime = () => {
     )
 }
 
-export default trendingAnime
+export default top10ThisSeason
 

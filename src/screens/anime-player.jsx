@@ -5,7 +5,7 @@ import AnimeDetails from '../components/anime-details.jsx';
 
 const AnimePlayer = () => {
     return (
-        <div className="anime-player">
+        <div className="anime-player no-scrollbar">
             <Header />
             {/* player + episodes*/}
             <div className="player-content h-[35vw] min-h-[300px] grid grid-cols-[3fr_1fr] gap-1 p-6">

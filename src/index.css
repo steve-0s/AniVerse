@@ -168,3 +168,19 @@
     display: none;
   }
 }
+
+/* In your globals.css or main style file */
+@layer utilities {
+  .no-scrollbar {
+    /* IE and Legacy Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+  }
+
+  /* Chrome, Safari, and newer Edge */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+

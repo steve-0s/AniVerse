@@ -22,7 +22,7 @@ const Header = () => {
                         </NavLink>
 
                         <NavLink to="/" className={({ isActive }) => isActive ? "text-red-900" : "text-gray-300 hover:text-red-900 transition-colors cursor-pointer"}>
-                            Genres
+                            Community
                         </NavLink>
                     </ul>
                 </nav>
