@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Landing from './screens/landing.jsx';
 import Home from './screens/home.jsx';
 import AnimePlayer from './screens/anime-player.jsx';
-import AnimeWatchScreen from './screens/anime-watch-screen.jsx';
+import AnimeWatchScreen from './screens/anime-details-screen.jsx';
 import Browse from './screens/browse.jsx';
 import SearchResults from './screens/search-results.jsx';
 import Schedule from './screens/schedule.jsx';

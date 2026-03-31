@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { animeCatalog } from '../data/mock-anime.js';
-import AnimeMetaChips from './anime-meta-chips.jsx';
+import { animeCatalog } from '../../data/mock-anime.js';
+import AnimeMetaChips from '../common/anime-meta-chips.jsx';
 
 const AnimeDetails = () => {
   const { id } = useParams();

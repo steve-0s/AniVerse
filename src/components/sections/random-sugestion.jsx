@@ -1,5 +1,5 @@
-import { animeCatalog } from '../data/mock-anime.js';
-import AnimeCard from './anime-card.jsx';
+import { animeCatalog } from '../../data/mock-anime.js';
+import AnimeCard from '../common/anime-card.jsx';
 
 const RandomSuggestion = () => {
   const randomAnime = animeCatalog[(new Date().getDate() - 1) % animeCatalog.length];

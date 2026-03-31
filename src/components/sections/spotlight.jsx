@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Play, Info, ChevronRight, ChevronLeft } from 'react-feather';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { spotlightItems } from '../data/mock-anime.js';
+import { spotlightItems } from '../../data/mock-anime.js';
 
 const SpotLight = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

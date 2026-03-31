@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import AnimeCard from './anime-card.jsx';
-import { animeCatalog } from '../data/mock-anime.js';
+import AnimeCard from '../common/anime-card.jsx';
+import { animeCatalog } from '../../data/mock-anime.js';
 
-const TrendingAnime = () => {
-  const items = animeCatalog.slice(0, 6);
+const Top10ThisSeason = () => {
+  const items = [...animeCatalog].sort((a, b) => b.rating - a.rating).slice(0, 6);
 
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-red-700">Trending</h3>
+        <h3 className="text-2xl font-bold text-red-700">Top 10 This Season</h3>
         <Link to="/browse" className="text-sm text-gray-300 hover:text-red-300">
           View all
         </Link>
@@ -27,4 +27,4 @@ const TrendingAnime = () => {
   );
 };
 
-export default TrendingAnime;
+export default Top10ThisSeason;

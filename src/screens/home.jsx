@@ -1,8 +1,8 @@
-import Header from '../components/header.jsx';
-import SpotLight from '../components/spotlight.jsx';
-import Trending from '../components/trending.jsx';
-import Top10 from '../components/top-anime-thisSeason.jsx';
-import LatestEpisodes from '../components/latest-ep.jsx';
+import Header from '../components/common/header.jsx';
+import SpotLight from '../components/sections/spotlight.jsx';
+import Trending from '../components/sections/trending.jsx';
+import Top10 from '../components/sections/top-anime-thisSeason.jsx';
+import LatestEpisodes from '../components/sections/latest-ep.jsx';
 
 const Home = () => {
   return (

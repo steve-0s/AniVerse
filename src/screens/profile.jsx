@@ -1,8 +1,8 @@
-import Header from '../components/header.jsx';
+import Header from '../components/common/header.jsx';
 import PageContainer from '../components/ui/page-container.jsx';
-import RandomSuggestion from '../components/random-sugestion.jsx';
+import RandomSuggestion from '../components/sections/random-sugestion.jsx';
 import { Link } from 'react-router-dom';
-import AnimeCard from '../components/anime-card.jsx';
+import AnimeCard from '../components/common/anime-card.jsx';
 import { animeCatalog } from '../data/mock-anime.js';
 
 const Profile = () => {

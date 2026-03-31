@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../components/header.jsx';
-import AnimeDetails from '../components/anime-details.jsx';
-import EpisodeList from '../components/episode-list.jsx';
-import SeasonTabs from '../components/season-tabs.jsx';
-import CommentSection from '../components/comments-section.jsx';
+import Header from '../components/common/header.jsx';
+import AnimeDetails from '../components/sections/anime-details.jsx';
+import EpisodeList from '../components/common/episode-list.jsx';
+import SeasonTabs from '../components/common/season-tabs.jsx';
+import CommentSection from '../components/sections/comments-section.jsx';
 import { animeCatalog, seasonEpisodes } from '../data/mock-anime.js';
 
 const AnimePlayer = () => {
@@ -32,7 +32,7 @@ const AnimePlayer = () => {
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 p-4 lg:grid-cols-[3fr_1fr]">
         <div className="rounded-xl border border-white/10 bg-black/30 p-4">
-          <div className="flex min-h-[350px] items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-gray-900 to-black">
+          <div className="flex min-h-[500px] items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-gray-900 to-black">
             <p className="text-center text-gray-300">
               Player scaffold for <span className="font-semibold text-red-300">{anime.title}</span> (S
               {selectedSeason}, E{selectedEpisode})

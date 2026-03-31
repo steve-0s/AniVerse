@@ -1,8 +1,8 @@
-import Header from '../components/header.jsx';
+import Header from '../components/common/header.jsx';
 import PageContainer from '../components/ui/page-container.jsx';
-import EstimatedSchedule from '../components/estimated-schedule.jsx';
-import UpcomingAnime from '../components/upcoming-animes.jsx';
-import LatestEpisodes from '../components/latest-ep.jsx';
+import EstimatedSchedule from '../components/sections/estimated-schedule.jsx';
+import UpcomingAnime from '../components/sections/upcoming-animes.jsx';
+import LatestEpisodes from '../components/sections/latest-ep.jsx';
 
 const Schedule = () => {
   return (

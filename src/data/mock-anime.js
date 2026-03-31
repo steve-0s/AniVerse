@@ -10,7 +10,7 @@ export const animeCatalog = [
     rating: 8.3,
     episodes: 220,
     status: 'Completed',
-    image: '/images/naruto.jpg'
+    image: null
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const animeCatalog = [
     rating: 9.0,
     episodes: 87,
     status: 'Completed',
-    image: '/images/aot.jpg'
+    image: null
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const animeCatalog = [
     rating: 8.7,
     episodes: 44,
     status: 'Ongoing',
-    image: '/images/demonslayer.jpg'
+    image: null
   },
   {
     id: 4,

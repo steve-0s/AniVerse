@@ -1,4 +1,4 @@
-import { airingSchedule } from '../data/mock-anime.js';
+import { airingSchedule } from '../../data/mock-anime.js';
 
 const EstimatedSchedule = () => {
   return (

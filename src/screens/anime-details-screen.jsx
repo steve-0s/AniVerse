@@ -1,9 +1,9 @@
-import Header from '../components/header.jsx';
+import Header from '../components/common/header.jsx';
 import PageContainer from '../components/ui/page-container.jsx';
-import AnimeDetails from '../components/anime-details.jsx';
-import CommentSection from '../components/comments-section.jsx';
+import AnimeDetails from '../components/sections/anime-details.jsx';
+import CommentSection from '../components/sections/comments-section.jsx';
 
-const AnimeDetailsScreen = () => {
+const AnimeWatchScreen = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const AnimeDetailsScreen = () => {
   );
 };
 
-export default AnimeDetailsScreen;
+export default AnimeWatchScreen;

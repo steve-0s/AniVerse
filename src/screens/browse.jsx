@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import Header from '../components/header.jsx';
+import Header from '../components/common/header.jsx';
 import PageContainer from '../components/ui/page-container.jsx';
-import FilterPanel from '../components/filter-panel.jsx';
-import AnimeCard from '../components/anime-card.jsx';
+import FilterPanel from '../components/common/filter-panel.jsx';
+import AnimeCard from '../components/common/anime-card.jsx';
 import EmptyState from '../components/ui/empty-state.jsx';
 import Pagination from '../components/ui/pagination.jsx';
 import { animeCatalog } from '../data/mock-anime.js';
