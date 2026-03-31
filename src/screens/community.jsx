@@ -1,5 +1,5 @@
 import Header from '../components/header.jsx';
-import PageContainer from '../components/page-container.jsx';
+import PageContainer from '../components/ui/page-container.jsx';
 import CommentSection from '../components/comments-section.jsx';
 
 const Community = () => {

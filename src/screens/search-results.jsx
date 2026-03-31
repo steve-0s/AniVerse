@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Header from '../components/header.jsx';
-import PageContainer from '../components/page-container.jsx';
+import PageContainer from '../components/ui/page-container.jsx';
 import AnimeCard from '../components/anime-card.jsx';
 import EmptyState from '../components/ui/empty-state.jsx';
 import { animeCatalog } from '../data/mock-anime.js';

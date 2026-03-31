@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Header from '../components/header.jsx';
-import PageContainer from '../components/page-container.jsx';
+import PageContainer from '../components/ui/page-container.jsx';
 import FilterPanel from '../components/filter-panel.jsx';
 import AnimeCard from '../components/anime-card.jsx';
 import EmptyState from '../components/ui/empty-state.jsx';
