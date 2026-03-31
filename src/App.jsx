@@ -2,12 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import Landing from './screens/landing.jsx';
 import Home from './screens/home.jsx';
 import AnimePlayer from './screens/anime-player.jsx';
+import AnimeWatchScreen from './screens/anime-watch-screen.jsx';
 import Browse from './screens/browse.jsx';
 import SearchResults from './screens/search-results.jsx';
 import Schedule from './screens/schedule.jsx';
 import Community from './screens/community.jsx';
 import Profile from './screens/profile.jsx';
-import AnimeDetailsScreen from './screens/anime-details-screen.jsx';
 import NotFound from './screens/not-found.jsx';
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
       <Route path="/community" element={<Community />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/anime/:id" element={<AnimePlayer />} />
-      <Route path="/anime/:id/details" element={<AnimeDetailsScreen />} />
+      <Route path="/anime/:id/details" element={<AnimeWatchScreen />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
