@@ -1,8 +1,14 @@
-const UpcomingAnime = () => {
-    return (
-        <>
-        </>
-    )
-}
+import SectionCarousel from './ui/section-carousel.jsx';
+import { animeCatalog } from '../data/mock-anime.js';
 
-export default UpcomingAnime
+const UpcomingAnime = () => {
+  return (
+    <SectionCarousel
+      title="Upcoming Anime"
+      items={[...animeCatalog].sort((a, b) => b.year - a.year).slice(0, 4)}
+      viewAllTo="/schedule"
+    />
+  );
+};
+
+export default UpcomingAnime;

@@ -1,64 +1,47 @@
-import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { animeCatalog } from '../data/mock-anime.js';
+import AnimeMetaChips from './anime-meta-chips.jsx';
 
-const animeLibrary = {
-    1: {
-    title: 'Naruto',
-    description: 'A young ninja with dreams of becoming the strongest ninja and village leader. A young ninja with dreams of becoming the strongest ninja and village leader.A young ninja with dreams of becoming the strongest ninja and village leader.A young ninja with dreams of becoming the strongest ninja and village leader.',
-    genres: ['Action', 'Adventure', 'Fantasy'],
-    studio: 'Pierrot',
-    year: '2002',
-    rating: 8.3,
-    episodes: 220,
-    status: 'Completed',
-    image: '/images/naruto.jpg',
-    },
-    2: {
-    title: 'Attack on Titan',
-    description: 'Humanity fights against giant Titans while discovering dark secrets about their world.',
-    genres: ['Action', 'Drama', 'Dark Fantasy'],
-    studio: 'MAPPA',
-    year: '2013',
-    rating: 9.0,
-    episodes: 87,
-    status: 'Completed',
-    image: '/images/aot.jpg',
-    },
-    3: {
-    title: 'Demon Slayer',
-    description: 'A youth becomes a demon slayer to avenge his family and save his sister.',
-    genres: ['Action', 'Supernatural', 'Adventure'],
-    studio: 'Ufotable',
-    year: '2019',
-    rating: 8.7,
-    episodes: 44,
-    status: 'Completed',
-    image: '/images/demonslayer.jpg',
-    },
+const AnimeDetails = () => {
+  const { id } = useParams();
+  const anime = animeCatalog.find((item) => item.id === Number(id)) || animeCatalog[0];
+
+  return (
+    <section className="p-6">
+      <div className="anime-details grid gap-6 rounded-lg border border-white/10 bg-black/30 p-6 md:grid-cols-[250px_1fr]">
+        <div className="h-80 w-full overflow-hidden rounded-lg bg-gray-800 md:h-auto">
+          {anime.image ? (
+            <img src={anime.image} alt={anime.title} className="h-full w-full object-cover" />
+          ) : (
+            <div className="flex h-full items-center justify-center text-8xl font-bold text-white/20">
+              {anime.title.charAt(0)}
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <h2 className="text-2xl font-bold">{anime.title}</h2>
+          <AnimeMetaChips genres={anime.genres} rating={anime.rating} year={anime.year} status={anime.status} />
+          <p className="text-sm text-gray-300">{anime.description}</p>
+          <div className="flex flex-wrap gap-4 text-xs text-gray-400">
+            <span>Studio: {anime.studio}</span>
+            <span>Episodes: {anime.episodes}</span>
+          </div>
+          <div className="flex gap-2 pt-2">
+            <Link
+              to={`/anime/${anime.id}`}
+              className="rounded-md bg-red-800 px-3 py-1.5 text-xs font-semibold hover:bg-red-700"
+            >
+              Go to Player
+            </Link>
+            <button className="rounded-md border border-white/20 px-3 py-1.5 text-xs font-semibold text-gray-200">
+              Add to Watchlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
-const animeDetails = () => {
-    return (
-        <div className='p-6 max-h-30vh overflow-y-auto'>
-        {/* anime details */}
-                <div className='anime-details p-10 rounded-lg bg-transparent backdrop-blur-sm grid grid-cols-[250px_1fr] gap-8'>
-                    <img
-                        src={animeLibrary[1].image}
-                        alt={animeLibrary[1].title}
-                        className="w-64 h-auto mb-4"
-                    />
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-2xl font-bold">{animeLibrary[1].title}</h2>
-                        <p className="text-gray-300 text-sm inline-clamp-5">{animeLibrary[1].description}</p> 
-                        <div className="flex flex-wrap gap-4">
-                            <span className="text-xs text-gray-400">Studio: {animeLibrary[1].studio}</span>
-                            <span className="text-xs text-gray-400">Year: {animeLibrary[1].year}</span>
-                            <span className="text-xs text-gray-400">Rating: {animeLibrary[1].rating}</span>
-                            <span className="text-xs text-gray-400">Episodes: {animeLibrary[1].episodes}</span>
-                            <span className="text-xs text-gray-400">Status: {animeLibrary[1].status}</span>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-    )
-}
-export default animeDetails;
+export default AnimeDetails;

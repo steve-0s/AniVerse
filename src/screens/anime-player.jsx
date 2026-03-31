@@ -1,50 +1,64 @@
-import React from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/header.jsx';
 import AnimeDetails from '../components/anime-details.jsx';
+import EpisodeList from '../components/episode-list.jsx';
+import SeasonTabs from '../components/season-tabs.jsx';
+import CommentSection from '../components/comments-section.jsx';
+import { animeCatalog, seasonEpisodes } from '../data/mock-anime.js';
 
 const AnimePlayer = () => {
-    return (
-        <div className="anime-player no-scrollbar">
-            <Header />
-            {/* player + episodes*/}
-            <div className="player-content h-[35vw] min-h-[300px] grid grid-cols-[3fr_1fr] gap-1 p-6">
-                {/* player */}
-                <div className="player">
-                    {/* player content */}
-                </div>
-                {/* season + episodes */}
-                <div className="bg-gray-900 backdrop-blur-sm p-4 overflow-y-auto flex flex-col gap-4">
-                    {/* season list */}
-                    <h3 className="text-lg font-bold text-red-800">Seasons</h3>
-                    <div className="flex flex-wrap gap-3 items-center justify-start max-h-25 overflow-y-auto">
-                        <button className="text-left text-sm text-gray-300 hover:text-red-800 hover:border-red-800 transition-colors border border-white/50 rounded-lg p-2
-                        min-w-20 flex item-center justify-center">
-                            Season 1
-                        </button>
-                        <button className="text-left text-sm text-gray-300 hover:text-red-800 hover:border-red-800 transition-colors border border-white/50 rounded-lg p-2
-                        ">
-                            Season 2
-                        </button>
-                    </div>
-                    {/*episode list */}
-                    <h3 className="text-lg font-bold text-red-800">Episodes</h3>
-                    <div className="flex flex-wrap gap-2 ml-1 max-h-60 items-center justify-start overflow-y-auto">
-                        <button className="text-left text-sm text-gray-300 transition-colors p-3 rounded-md bg-gray-800/50 border border-gray-700/50 hover:bg-red-800
-                        flex items-center justify-center min-w-12">
-                            1
-                        </button>
-                        <button className="text-left text-sm text-gray-300 transition-colors p-3 rounded-md bg-gray-800/50 border border-gray-700/50 hover:bg-red-800
-                        flex items-center justify-center min-w-12">
-                            2
-                        </button>
-                    </div>
-                </div>
-            </div>
-            {/* anime info */}
-            <AnimeDetails />
+  const { id } = useParams();
+  const animeId = Number(id);
+  const anime = animeCatalog.find((item) => item.id === animeId) || animeCatalog[0];
+
+  const availableSeasons = useMemo(() => {
+    return Object.keys(seasonEpisodes[anime.id] || { 1: [] }).map(Number);
+  }, [anime.id]);
+
+  const [selectedSeason, setSelectedSeason] = useState(availableSeasons[0] || 1);
+  const episodes = seasonEpisodes[anime.id]?.[selectedSeason] || [];
+  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]?.id || 1);
+
+  const handleSeasonSelect = (season) => {
+    setSelectedSeason(season);
+    const nextEpisodes = seasonEpisodes[anime.id]?.[season] || [];
+    setSelectedEpisode(nextEpisodes[0]?.id || 1);
+  };
+
+  return (
+    <div className="anime-player no-scrollbar min-h-screen bg-gray-950 text-white">
+      <Header />
+
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 p-4 lg:grid-cols-[3fr_1fr]">
+        <div className="rounded-xl border border-white/10 bg-black/30 p-4">
+          <div className="flex min-h-[350px] items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-gray-900 to-black">
+            <p className="text-center text-gray-300">
+              Player scaffold for <span className="font-semibold text-red-300">{anime.title}</span> (S
+              {selectedSeason}, E{selectedEpisode})
+            </p>
+          </div>
         </div>
-    )
-}
+
+        <aside className="space-y-4 rounded-xl border border-white/10 bg-black/30 p-4">
+          <h3 className="text-lg font-bold text-red-700">Seasons</h3>
+          <SeasonTabs
+            seasons={availableSeasons}
+            selectedSeason={selectedSeason}
+            onSelect={handleSeasonSelect}
+          />
+
+          <h3 className="pt-2 text-lg font-bold text-red-700">Episodes</h3>
+          <EpisodeList episodes={episodes} selectedEpisode={selectedEpisode} onSelect={setSelectedEpisode} />
+        </aside>
+      </div>
+
+      <AnimeDetails />
+      <div className="mx-auto w-full max-w-7xl px-6 pb-10">
+        <CommentSection />
+      </div>
+    </div>
+  );
+};
 
 export default AnimePlayer;
