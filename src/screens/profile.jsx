@@ -1,7 +1,8 @@
 import Header from '../components/header.jsx';
 import PageContainer from '../components/ui/page-container.jsx';
 import RandomSuggestion from '../components/random-sugestion.jsx';
-import SectionCarousel from '../components/ui/section-carousel.jsx';
+import { Link } from 'react-router-dom';
+import AnimeCard from '../components/anime-card.jsx';
 import { animeCatalog } from '../data/mock-anime.js';
 
 const Profile = () => {
@@ -17,7 +18,24 @@ const Profile = () => {
         </section>
 
         <div className="mt-6">
-          <SectionCarousel title="My Watchlist" items={animeCatalog.slice(0, 4)} viewAllTo="/browse" />
+          <section className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-2xl font-bold text-red-700">My Watchlist</h3>
+              <Link to="/browse" className="text-sm text-gray-300 hover:text-red-300">
+                View all
+              </Link>
+            </div>
+
+            <div className="no-scrollbar overflow-x-auto">
+              <div className="grid w-max grid-flow-col gap-4 pb-2">
+                {animeCatalog.slice(0, 4).map((anime) => (
+                  <div key={anime.id} className="w-64">
+                    <AnimeCard anime={anime} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
 
         <div className="mt-6">
