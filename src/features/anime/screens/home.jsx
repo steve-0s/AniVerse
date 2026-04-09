@@ -4,6 +4,7 @@ import Trending from '../components/trending.jsx';
 import Top10 from '../components/top-anime-thisSeason.jsx';
 import LatestEpisodes from '../components/latest-ep.jsx';
 import PageContainer from '../../../shared/ui/page-container.jsx';
+import RandomSuggestions from '../components/random-sugestion.jsx'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
           <Trending />
           <Top10 />
           <LatestEpisodes />
+          <RandomSuggestions />
         </div>
       </PageContainer>
     </>

@@ -14,8 +14,8 @@ const LatestChapters = () => {
         </Link>
       </div>
 
-      <div className="no-scrollbar overflow-x-auto">
-        <div className="grid w-max grid-flow-col gap-4 pb-2">
+      <div className="no-scrollbar">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((manga) => (
             <div key={manga.id} className="w-64">
               <MangaCard manga={manga} />

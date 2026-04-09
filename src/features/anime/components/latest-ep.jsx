@@ -14,10 +14,10 @@ const LatestEpisodes = () => {
         </Link>
       </div>
 
-      <div className="no-scrollbar overflow-x-auto">
-        <div className="grid w-max grid-flow-col gap-4 pb-2">
+      <div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((anime) => (
-            <div key={anime.id} className="w-64">
+            <div key={anime.id} className="w-full min-w-0">
               <AnimeCard anime={anime} />
             </div>
           ))}
