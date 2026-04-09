@@ -19,6 +19,12 @@ const PROFILE_TABS = [
 const WATCH_STATUSES = ['Watching', 'On Hold', 'Plan to Watch', 'Dropped', 'Completed'];
 const READ_STATUSES = ['Reading', 'On Hold', 'Plan to Read', 'Dropped', 'Completed'];
 const GRID_PAGE_SIZE = 20;
+const PROFILE_SHELL_CLASS = 'bg-gradient-to-br from-zinc-950 via-black to-rose-950/20';
+const PROFILE_CARD_CLASS = 'bg-gradient-to-br from-black to-zinc-950';
+const PROFILE_ACCENT_CLASS = 'text-rose-200';
+const PROFILE_HIGHLIGHT_BUTTON_CLASS = 'bg-rose-300 text-black hover:bg-rose-200';
+const PROFILE_IDLE_BUTTON_CLASS = 'border border-white/15 bg-black/40 text-gray-300 hover:text-rose-200';
+const PROFILE_FIELD_CLASS = 'w-full rounded-xl border border-white/15 bg-black/30 px-4 py-3 text-white outline-none';
 
 const buildProfileEntries = (items, statuses, repeatCount, extraFields = () => ({})) =>
   Array.from({ length: repeatCount }).flatMap((_, repeatIndex) =>
@@ -63,25 +69,21 @@ const paginateItems = (items, page, pageSize) => {
   };
 };
 
-const TabButton = ({ active, label, onClick, isMangaMode }) => (
+const TabButton = ({ active, label, onClick }) => (
   <button
     type="button"
     onClick={onClick}
     className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
       active
-        ? isMangaMode
-          ? 'bg-white text-black'
-          : 'bg-red-700 text-white'
-        : isMangaMode
-          ? 'border border-white/15 bg-black text-gray-300 hover:text-white'
-          : 'border border-white/15 bg-black/30 text-gray-300 hover:text-red-200'
+        ? PROFILE_HIGHLIGHT_BUTTON_CLASS
+        : PROFILE_IDLE_BUTTON_CLASS
     }`}
   >
     {label}
   </button>
 );
 
-const FilterPills = ({ options, selected, onSelect, isMangaMode }) => (
+const FilterPills = ({ options, selected, onSelect }) => (
   <div className="flex flex-wrap gap-2">
     {options.map((option) => (
       <button
@@ -90,10 +92,8 @@ const FilterPills = ({ options, selected, onSelect, isMangaMode }) => (
         onClick={() => onSelect(option)}
         className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
           selected === option
-            ? isMangaMode
-              ? 'bg-white text-black'
-              : 'bg-red-700 text-white'
-            : 'border border-white/15 bg-black/30 text-gray-300 hover:text-white'
+            ? PROFILE_HIGHLIGHT_BUTTON_CLASS
+            : PROFILE_IDLE_BUTTON_CLASS
         }`}
       >
         {option}
@@ -109,16 +109,15 @@ const GridSection = ({
   page,
   onPageChange,
   renderCard,
-  isMangaMode,
   emptyMessage = 'No items here yet.'
 }) => {
   const { pagedItems, safePage, totalPages } = paginateItems(items, page, GRID_PAGE_SIZE);
 
   return (
-    <section className={`rounded-2xl border border-white/10 p-5 ${isMangaMode ? 'bg-zinc-950/80' : 'bg-black/30'}`}>
+    <section className={`rounded-2xl border border-white/10 p-5 ${PROFILE_SHELL_CLASS}`}>
       <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h3 className={`text-2xl font-bold ${isMangaMode ? 'text-white' : 'text-red-700'}`}>{title}</h3>
+          <h3 className={`text-2xl font-bold ${PROFILE_ACCENT_CLASS}`}>{title}</h3>
           {subtitle && <p className="mt-1 text-sm text-gray-400">{subtitle}</p>}
         </div>
         <p className="text-sm text-gray-400">{items.length} titles</p>
@@ -129,7 +128,7 @@ const GridSection = ({
           {pagedItems.map(renderCard)}
         </div>
       ) : (
-        <div className="rounded-xl border border-white/10 bg-black/20 p-6 text-sm text-gray-400">{emptyMessage}</div>
+        <div className={`rounded-xl border border-white/10 p-6 text-sm text-gray-400 ${PROFILE_CARD_CLASS}`}>{emptyMessage}</div>
       )}
 
       <Pagination currentPage={safePage} totalPages={totalPages} onPageChange={onPageChange} />
@@ -170,10 +169,10 @@ const SharedProfile = () => {
       <Header />
       <PageContainer>
         <div className="space-y-6">
-          <section className={`rounded-2xl border border-white/10 p-5 ${isMangaMode ? 'bg-zinc-950/80' : 'bg-black/30'}`}>
+          <section className={`rounded-2xl border border-white/10 p-5 ${PROFILE_SHELL_CLASS}`}>
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <p className={`text-sm ${isMangaMode ? 'text-gray-300' : 'text-red-200'}`}>Hi, {accountName}</p>
+                <p className={`text-sm ${PROFILE_ACCENT_CLASS}`}>Hi, {accountName}</p>
                 <h2 className="mt-1 text-3xl font-bold text-white">Account Center</h2>
                 <p className="mt-2 text-sm text-gray-400">
                   Manage your profile, track progress, and organize both anime and manga in one place.
@@ -187,7 +186,6 @@ const SharedProfile = () => {
                     active={activeTab === tab.id}
                     label={tab.label}
                     onClick={() => setActiveTab(tab.id)}
-                    isMangaMode={isMangaMode}
                   />
                 ))}
               </div>
@@ -195,17 +193,15 @@ const SharedProfile = () => {
           </section>
 
           {activeTab === 'profile' && (
-            <section className={`rounded-2xl border border-white/10 p-5 ${isMangaMode ? 'bg-zinc-950/80' : 'bg-black/30'}`}>
+            <section className={`rounded-2xl border border-white/10 p-5 ${PROFILE_SHELL_CLASS}`}>
               <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 text-center">
+                <div className={`rounded-2xl border border-white/10 p-5 text-center ${PROFILE_CARD_CLASS}`}>
                   <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-white/15 bg-black text-3xl font-bold text-white">
                     S
                   </div>
                   <button
                     type="button"
-                    className={`mt-4 rounded-md px-4 py-2 text-sm font-semibold transition ${
-                      isMangaMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-red-700 text-white hover:bg-red-600'
-                    }`}
+                    className={`mt-4 rounded-md px-4 py-2 text-sm font-semibold transition ${PROFILE_HIGHLIGHT_BUTTON_CLASS}`}
                   >
                     Change Profile Picture
                   </button>
@@ -217,7 +213,7 @@ const SharedProfile = () => {
                     <input
                       type="text"
                       defaultValue="Steve Cruz"
-                      className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none"
+                      className={PROFILE_FIELD_CLASS}
                     />
                   </label>
                   <label className="space-y-2">
@@ -225,7 +221,7 @@ const SharedProfile = () => {
                     <input
                       type="text"
                       defaultValue="steveverse"
-                      className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none"
+                      className={PROFILE_FIELD_CLASS}
                     />
                   </label>
                   <label className="space-y-2 md:col-span-2">
@@ -233,7 +229,7 @@ const SharedProfile = () => {
                     <input
                       type="email"
                       defaultValue="steve@aniverse.app"
-                      className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none"
+                      className={PROFILE_FIELD_CLASS}
                     />
                   </label>
                   <label className="space-y-2">
@@ -241,7 +237,7 @@ const SharedProfile = () => {
                     <input
                       type="password"
                       placeholder="Enter a new password"
-                      className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none"
+                      className={PROFILE_FIELD_CLASS}
                     />
                   </label>
                   <label className="space-y-2">
@@ -249,7 +245,7 @@ const SharedProfile = () => {
                     <input
                       type="password"
                       placeholder="Confirm password"
-                      className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none"
+                      className={PROFILE_FIELD_CLASS}
                     />
                   </label>
                 </div>
@@ -258,15 +254,13 @@ const SharedProfile = () => {
               <div className="mt-5 flex flex-wrap gap-3">
                 <button
                   type="button"
-                  className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
-                    isMangaMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-red-700 text-white hover:bg-red-600'
-                  }`}
+                  className={`rounded-md px-4 py-2 text-sm font-semibold transition ${PROFILE_HIGHLIGHT_BUTTON_CLASS}`}
                 >
                   Save Changes
                 </button>
                 <button
                   type="button"
-                  className="rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-gray-300 transition hover:text-white"
+                  className="rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-gray-300 transition hover:text-rose-200"
                 >
                   Change Password
                 </button>
@@ -281,7 +275,6 @@ const SharedProfile = () => {
               items={animeContinueEntries}
               page={continueWatchingPage}
               onPageChange={setContinueWatchingPage}
-              isMangaMode={isMangaMode}
               renderCard={(anime) => (
                 <div key={anime.profileEntryId} className="w-full min-w-0">
                   <p className="mb-2 text-xs text-gray-400">{anime.progressLabel}</p>
@@ -298,7 +291,6 @@ const SharedProfile = () => {
               items={mangaContinueEntries}
               page={continueReadingPage}
               onPageChange={setContinueReadingPage}
-              isMangaMode={isMangaMode}
               renderCard={(manga) => (
                 <div key={manga.profileEntryId} className="w-full min-w-0">
                   <p className="mb-2 text-xs text-gray-400">{manga.progressLabel}</p>
@@ -312,10 +304,10 @@ const SharedProfile = () => {
             <section className="space-y-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h3 className={`text-2xl font-bold ${isMangaMode ? 'text-white' : 'text-red-700'}`}>Watch List</h3>
+                  <h3 className={`text-2xl font-bold ${PROFILE_ACCENT_CLASS}`}>Watch List</h3>
                   <p className="mt-1 text-sm text-gray-400">Filter anime by watching status and page through your list.</p>
                 </div>
-                <Link to="/browse" className="text-sm text-gray-300 hover:text-red-300">
+                <Link to="/browse" className="text-sm text-gray-300 hover:text-rose-200">
                   Browse more anime
                 </Link>
               </div>
@@ -327,7 +319,6 @@ const SharedProfile = () => {
                   setWatchStatusFilter(value);
                   setWatchListPage(1);
                 }}
-                isMangaMode={isMangaMode}
               />
 
               <GridSection
@@ -335,7 +326,6 @@ const SharedProfile = () => {
                 items={filteredWatchlist}
                 page={watchListPage}
                 onPageChange={setWatchListPage}
-                isMangaMode={isMangaMode}
                 emptyMessage="No anime found for this watch status."
                 renderCard={(anime) => (
                   <div key={anime.profileEntryId} className="w-full min-w-0">
@@ -351,10 +341,10 @@ const SharedProfile = () => {
             <section className="space-y-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Read List</h3>
+                  <h3 className={`text-2xl font-bold ${PROFILE_ACCENT_CLASS}`}>Read List</h3>
                   <p className="mt-1 text-sm text-gray-400">Filter manga by reading status and move through pages.</p>
                 </div>
-                <Link to="/manga/browse" className="text-sm text-gray-300 hover:text-white">
+                <Link to="/manga/browse" className="text-sm text-gray-300 hover:text-rose-200">
                   Browse more manga
                 </Link>
               </div>
@@ -366,7 +356,6 @@ const SharedProfile = () => {
                   setReadStatusFilter(value);
                   setReadListPage(1);
                 }}
-                isMangaMode
               />
 
               <GridSection
@@ -374,7 +363,6 @@ const SharedProfile = () => {
                 items={filteredReadlist}
                 page={readListPage}
                 onPageChange={setReadListPage}
-                isMangaMode
                 emptyMessage="No manga found for this read status."
                 renderCard={(manga) => (
                   <div key={manga.profileEntryId} className="w-full min-w-0">

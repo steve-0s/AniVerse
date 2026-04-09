@@ -4,6 +4,7 @@ import Spotlight from '../components/spotlight.jsx';
 import TrendingManga from '../components/trending.jsx';
 import TopManga from '../components/top-manga.jsx';
 import LatestChapters from '../components/latest-chapters.jsx';
+import CommunityLatestPosts from '../../../shared/components/community-latest-posts.jsx';
 
 const MangaHome = () => {
   return (
@@ -14,6 +15,12 @@ const MangaHome = () => {
           <Spotlight />
           <TrendingManga />
           <TopManga />
+          <CommunityLatestPosts
+            theme="manga"
+            title="Latest Posts"
+            subtitle="Recent manga threads and chapter discussions."
+            limit={10}
+          />
           <LatestChapters />
         </div>
       </PageContainer>

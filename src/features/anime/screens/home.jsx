@@ -4,7 +4,8 @@ import Trending from '../components/trending.jsx';
 import Top10 from '../components/top-anime-thisSeason.jsx';
 import LatestEpisodes from '../components/latest-ep.jsx';
 import PageContainer from '../../../shared/ui/page-container.jsx';
-import RandomSuggestions from '../components/random-sugestion.jsx'
+import RandomSuggestions from '../components/random-sugestion.jsx';
+import CommunityLatestPosts from '../../../shared/components/community-latest-posts.jsx';
 
 const Home = () => {
   return (
@@ -15,6 +16,12 @@ const Home = () => {
           <SpotLight />
           <Trending />
           <Top10 />
+          <CommunityLatestPosts
+            theme="anime"
+            title="Latest Posts"
+            subtitle="Recent anime discussions from the community."
+            limit={10}
+          />
           <LatestEpisodes />
           <RandomSuggestions />
         </div>

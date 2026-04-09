@@ -1,7 +1,7 @@
-const CommunityLatestComments = () => {
-    return (
-        <section className='space-y-3'>
+import CommunityLatestPosts from '../../../shared/components/community-latest-posts.jsx';
 
-        </section>
-    )
-}
+const CommunityLatestComments = () => {
+  return <CommunityLatestPosts theme="anime" title="Latest Posts" subtitle="Recent anime discussions from the community." limit={5} />;
+};
+
+export default CommunityLatestComments;
