@@ -41,6 +41,7 @@ const Header = () => {
   const navItems = buildNavItems(isManga);
   const animePath = mapModePath(pathname, 'anime');
   const mangaPath = mapModePath(pathname, 'manga');
+  const accountName = 'Steve';
 
   return (
     <div
@@ -98,12 +99,14 @@ const Header = () => {
           </nav>
         </div>
 
-        <SmallSearchBar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          placeholder={isManga ? 'Search manga...' : 'Search anime...'}
-          theme={isManga ? 'manga' : 'anime'}
-        />
+        <div className="flex items-center gap-3">
+          <SmallSearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            placeholder={isManga ? 'Search manga...' : 'Search anime...'}
+            theme={isManga ? 'manga' : 'anime'}
+          />
+        </div>
       </div>
     </div>
   );

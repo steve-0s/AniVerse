@@ -15,7 +15,7 @@ import MangaCommunity from './features/manga/screens/community.jsx';
 import MangaReader from './features/manga/screens/manga-reader.jsx';
 import MangaDetailsScreen from './features/manga/screens/manga-details-screen.jsx';
 import NotFound from './features/app/screens/not-found.jsx';
-import SharedProfile from './features/app/screens/profile.jsx';
+import SharedProfile from './shared/screens/profile.jsx';
 
 const App = () => {
   return (
