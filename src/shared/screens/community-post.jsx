@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from '../components/header.jsx';
 import { getCommunityPostById } from './community-feed.jsx';
 import PageContainer from '../ui/page-container.jsx';
+import {useState} from 'react';
 
 const VoteRail = ({ votes, mode = 'shared', userVote = null }) => {
   const isManga = mode === 'manga';
@@ -41,6 +42,7 @@ const CommunityPostScreen = () => {
   const theme = isSharedCommunity ? 'shared' : isManga ? 'manga' : 'anime';
   const post = getCommunityPostById(theme, postId);
   const backPath = isSharedCommunity ? '/community' : isManga ? '/manga/community' : '/community';
+  const [activeReplyId, setActiveReplyId] = useState(null);
 
   if (!post) {
     return (
@@ -173,25 +175,28 @@ const CommunityPostScreen = () => {
                       </button>
                       <button
                         type="button"
+                        onClick={() => setActiveReplyId(activeReplyId === comment.id ? null : comment.id)}
                         className={`inline-flex items-center gap-1 transition ${accentTextClass}`}
                       >
                         Reply
                       </button>
                     </div>
-                    <div className="mt-3 flex items-center gap-2">
-                      <input
-                        type="text"
-                        placeholder={`Reply to ${comment.author}...`}
-                        className={`w-full rounded-xl border border-white/15 p-3 text-sm text-white outline-none ${fieldClass}`}
-                      />
-                      <button
-                        type="button"
-                        aria-label="Send reply"
-                        className={`inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition ${actionButtonClass}`}
-                      >
-                        <Send size={16} />
-                      </button>
-                    </div>
+                    {activeReplyId === comment.id && (
+                      <div className="mt-3 flex items-center gap-2">
+                        <input
+                          type="text"
+                          placeholder={`Reply to ${comment.author}...`}
+                          className={`w-full rounded-xl border border-white/15 p-3 text-sm text-white outline-none ${fieldClass}`}
+                        />
+                        <button
+                          type="button"
+                          aria-label="Send reply"
+                          className={`inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition ${actionButtonClass}`}
+                        >
+                          <Send size={16} />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </article>
               ))}

@@ -695,8 +695,6 @@ const CommunityFeed = ({
   theme = 'shared',
   title,
   subtitle,
-  composerPlaceholder,
-  commentPlaceholder
 }) => {
   const isManga = theme === 'manga';
   const isShared = theme === 'shared';
@@ -754,7 +752,7 @@ const CommunityFeed = ({
                 ))}
               </select>
               <textarea
-                placeholder={composerPlaceholder}
+                placeholder="Write what's on your mind..."
                 className={`min-h-40 w-full rounded-xl border border-white/15 p-3 text-sm text-white outline-none ${fieldClass}`}
               />
               <div className="flex justify-end">
@@ -835,7 +833,7 @@ const CommunityFeed = ({
                     comments={post.comments}
                     mode={theme}
                     isManga={isManga}
-                    placeholder={commentPlaceholder}
+                    placeholder="Write a reply to this post..."
                     limit={FEED_COMMENT_LIMIT}
                     showViewAllLink
                     threadPath={threadPath}
