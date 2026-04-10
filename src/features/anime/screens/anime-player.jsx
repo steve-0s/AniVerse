@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useMemo, useState, useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import Header from '../../../shared/components/header.jsx';
 import AnimeDetails from '../components/anime-details.jsx';
 import EpisodeList from '../components/episode-list.jsx';
@@ -9,6 +9,7 @@ import { animeCatalog, seasonEpisodes } from '../data/mock-anime.js';
 
 const AnimePlayer = () => {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
   const animeId = Number(id);
   const anime = animeCatalog.find((item) => item.id === animeId) || animeCatalog[0];
 
@@ -18,7 +19,15 @@ const AnimePlayer = () => {
 
   const [selectedSeason, setSelectedSeason] = useState(availableSeasons[0] || 1);
   const episodes = seasonEpisodes[anime.id]?.[selectedSeason] || [];
-  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]?.id || 1);
+  const initialEpisode = Number(searchParams.get('ep')) || episodes[0]?.id || 1;
+  const [selectedEpisode, setSelectedEpisode] = useState(initialEpisode);
+
+  useEffect(() => {
+    const epFromUrl = Number(searchParams.get('ep'));
+    if (epFromUrl && episodes.some(ep => ep.id === epFromUrl)) {
+      setSelectedEpisode(epFromUrl);
+    }
+  }, [searchParams, episodes]);
 
   const handleSeasonSelect = (season) => {
     setSelectedSeason(season);

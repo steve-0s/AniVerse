@@ -6,6 +6,8 @@ import LatestEpisodes from '../components/latest-ep.jsx';
 import PageContainer from '../../../shared/ui/page-container.jsx';
 import RandomSuggestions from '../components/random-sugestion.jsx';
 import CommunityLatestPosts from '../../../shared/components/community-latest-posts.jsx';
+import EstimatedSchedule from '../components/estimated-schedule.jsx';
+import UpcomingAnime from '../components/upcoming-animes.jsx';
 
 const Home = () => {
   return (
@@ -23,6 +25,8 @@ const Home = () => {
             limit={10}
           />
           <LatestEpisodes />
+          <EstimatedSchedule />
+          <UpcomingAnime />
           <RandomSuggestions />
         </div>
       </PageContainer>

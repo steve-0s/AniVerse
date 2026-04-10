@@ -99,9 +99,11 @@ export const seasonEpisodes = {
 };
 
 export const airingSchedule = [
-  { day: 'Monday', anime: 'One Piece', time: '8:00 PM' },
-  { day: 'Tuesday', anime: 'Demon Slayer', time: '9:00 PM' },
-  { day: 'Wednesday', anime: 'Jujutsu Kaisen', time: '7:30 PM' },
-  { day: 'Thursday', anime: 'Hell\'s Paradise', time: '8:30 PM' },
-  { day: 'Friday', anime: 'Attack on Titan (Rewatch Event)', time: '7:00 PM' }
+  { day: 'Monday', anime: 'One Piece', time: '8:00 PM', episode: 1123, id: 1 },
+  { day: 'Tuesday', anime: 'Demon Slayer', time: '9:00 PM', episode: 45, id: 2 },
+  { day: 'Wednesday', anime: 'Jujutsu Kaisen', time: '7:30 PM', episode: 24, id: 3 },
+  { day: 'Thursday', anime: 'Hell\'s Paradise', time: '8:30 PM', episode: 13, id: 4 },
+  { day: 'Friday', anime: 'Attack on Titan (Rewatch Event)', time: '7:00 PM', episode: 1, id: 5 },
+  { day: 'Saturday', anime: 'My Hero Academia', time: '6:00 PM', episode: 138, id: 6 },
+  { day: 'Sunday', anime: 'Naruto Shippuden', time: '5:00 PM', episode: 500, id: 7 }
 ];

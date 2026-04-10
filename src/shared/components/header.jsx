@@ -7,7 +7,6 @@ const buildNavItems = (isManga) => [
   { to: isManga ? '/manga/home' : '/home', label: 'Home' },
   { to: isManga ? '/manga/browse' : '/browse', label: isManga ? 'Manga List' : 'Anime List' },
   { to: isManga ? '/manga/community' : '/community', label: 'Community' },
-  ...(isManga ? [] : [{ to: '/schedule', label: 'Schedule' }]),
 ];
 
 const mapModePath = (pathname, targetMode) => {
@@ -15,7 +14,6 @@ const mapModePath = (pathname, targetMode) => {
     if (pathname === '/home') return '/manga/home';
     if (pathname === '/browse') return '/manga/browse';
     if (pathname === '/search') return '/manga/search';
-    if (pathname === '/schedule') return '/manga/home';
     if (pathname === '/community') return '/manga/community';
     if (pathname === '/profile') return '/manga/profile';
     if (/^\/anime\/\d+\/details$/.test(pathname)) return pathname.replace('/anime/', '/manga/');
@@ -26,7 +24,6 @@ const mapModePath = (pathname, targetMode) => {
   if (pathname === '/manga/home') return '/home';
   if (pathname === '/manga/browse') return '/browse';
   if (pathname === '/manga/search') return '/search';
-  if (pathname === '/manga/schedule') return '/schedule';
   if (pathname === '/manga/community') return '/community';
   if (pathname === '/manga/profile') return '/profile';
   if (/^\/manga\/\d+\/details$/.test(pathname)) return pathname.replace('/manga/', '/anime/');
