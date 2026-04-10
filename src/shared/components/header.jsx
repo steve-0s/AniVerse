@@ -5,7 +5,7 @@ import { SmallSearchBar } from './searchbar.jsx';
 
 const buildNavItems = (isManga) => [
   { to: isManga ? '/manga/home' : '/home', label: 'Home' },
-  { to: isManga ? '/manga/browse' : '/browse', label: isManga ? 'Manga List' : 'Anime List' },
+  { to: isManga ? '/manga/browse' : '/browse', label: 'Browse' },
   { to: isManga ? '/manga/community' : '/community', label: 'Community' },
 ];
 
@@ -61,7 +61,7 @@ const Header = () => {
             {mobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <NavLink to={isManga ? '/manga/home' : '/home'} className="flex items-center gap-2">
+          <NavLink to="/" className="flex items-center gap-2">
             <img src="/images/AniVerse-logo.png" alt="Logo" className="h-16" />
           </NavLink>
           <div className="flex items-center rounded-full border border-white/15 bg-black/70 p-1">

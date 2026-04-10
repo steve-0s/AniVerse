@@ -5,7 +5,6 @@ import AnimePlayer from './features/anime/screens/anime-player.jsx';
 import AnimeWatchScreen from './features/anime/screens/anime-details-screen.jsx';
 import Browse from './features/anime/screens/browse.jsx';
 import SearchResults from './features/anime/screens/search-results.jsx';
-import Schedule from './features/anime/screens/schedule.jsx';
 import MangaHome from './features/manga/screens/home.jsx';
 import MangaBrowse from './features/manga/screens/browse.jsx';
 import MangaSearchResults from './features/manga/screens/search-results.jsx';
@@ -23,7 +22,6 @@ const App = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/browse" element={<Browse />} />
       <Route path="/search" element={<SearchResults />} />
-      <Route path="/schedule" element={<Schedule />} />
       <Route path="/community" element={<SharedCommunity />} />
       <Route path="/community/:postId" element={<CommunityPostScreen />} />
       <Route path="/profile" element={<SharedProfile />} />
