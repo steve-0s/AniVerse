@@ -1,5 +1,5 @@
 import Header from '../components/header.jsx';
-import CommunityFeed from '../components/community-feed.jsx';
+import CommunityFeed from './community-feed.jsx';
 import PageContainer from '../ui/page-container.jsx';
 
 const SharedCommunity = () => {

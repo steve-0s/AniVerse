@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { buildCommunityPosts } from './community-feed.jsx';
+import { buildCommunityPosts } from '../screens/community-feed';
 
 const CommunityLatestPosts = ({
   theme = 'anime',

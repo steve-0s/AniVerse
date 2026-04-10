@@ -1,7 +1,7 @@
 import { Send } from 'react-feather';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from '../components/header.jsx';
-import { getCommunityPostById } from '../components/community-feed.jsx';
+import { getCommunityPostById } from './community-feed.jsx';
 import PageContainer from '../ui/page-container.jsx';
 
 const VoteRail = ({ votes, mode = 'shared', userVote = null }) => {
