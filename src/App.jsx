@@ -9,7 +9,6 @@ import Schedule from './features/anime/screens/schedule.jsx';
 import MangaHome from './features/manga/screens/home.jsx';
 import MangaBrowse from './features/manga/screens/browse.jsx';
 import MangaSearchResults from './features/manga/screens/search-results.jsx';
-import MangaSchedule from './features/manga/screens/schedule.jsx';
 import MangaReader from './features/manga/screens/manga-reader.jsx';
 import MangaDetailsScreen from './features/manga/screens/manga-details-screen.jsx';
 import NotFound from './features/app/screens/not-found.jsx';
@@ -33,7 +32,6 @@ const App = () => {
       <Route path="/manga/home" element={<MangaHome />} />
       <Route path="/manga/browse" element={<MangaBrowse />} />
       <Route path="/manga/search" element={<MangaSearchResults />} />
-      <Route path="/manga/schedule" element={<MangaSchedule />} />
       <Route path="/manga/community" element={<SharedCommunity />} />
       <Route path="/manga/community/:postId" element={<CommunityPostScreen />} />
       <Route path="/manga/profile" element={<SharedProfile />} />

@@ -9,9 +9,6 @@ const UpcomingReleases = () => {
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-white">Upcoming Releases</h3>
-        <Link to="/manga/schedule" className="text-sm text-gray-300 transition hover:text-white">
-          View all
-        </Link>
       </div>
 
       <div className="no-scrollbar overflow-x-auto">

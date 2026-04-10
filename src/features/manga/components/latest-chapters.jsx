@@ -9,9 +9,6 @@ const LatestChapters = () => {
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-white">Latest Chapters</h3>
-        <Link to="/manga/schedule" className="text-sm text-gray-300 transition hover:text-white">
-          View all
-        </Link>
       </div>
 
       <div className="no-scrollbar">
