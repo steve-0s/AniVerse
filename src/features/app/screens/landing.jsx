@@ -75,14 +75,6 @@ const Landing = () => {
         <div className="w-full max-w-md sm:max-w-xl md:max-w-2xl mb-25">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
-
-        <button
-          onClick={() => navigate('/home')}
-          className="mt-8 w-full max-w-[280px] rounded-xl bg-[#ff1133] px-6 py-3 text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:bg-[#ff3355] shadow-[0_0_20px_rgba(255,17,51,0.5)] hover:shadow-[0_0_30px_rgba(255,17,51,0.8)] sm:text-base"
-        >
-          Continue to Home Page
-        </button>
-
         <p className="mt-6 text-sm text-gray-300/90 animate-pulse">Scroll down to continue</p>
       </div>
     </main>
