@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, Search, X } from 'react-feather';
 import { SmallSearchBar } from './searchbar.jsx';
 
 const buildNavItems = (isManga) => [
@@ -35,6 +36,8 @@ const mapModePath = (pathname, targetMode) => {
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const { pathname } = useLocation();
   const isManga = pathname.startsWith('/manga');
   const navItems = buildNavItems(isManga);
@@ -52,6 +55,15 @@ const Header = () => {
     >
       <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 py-2">
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setMobileNavOpen((prev) => !prev)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white transition hover:bg-white/10 md:hidden"
+            aria-label={mobileNavOpen ? 'Close navigation' : 'Open navigation'}
+          >
+            {mobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+
           <NavLink to={isManga ? '/manga/home' : '/home'} className="flex items-center gap-2">
             <img src="/images/AniVerse-logo.png" alt="Logo" className="h-16" />
           </NavLink>
@@ -59,7 +71,7 @@ const Header = () => {
             <NavLink
               to={animePath}
               className={({ isActive }) =>
-                `rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] transition ${
+                `rounded-full px-2 py-1 text-xs font-semibold uppercase tracking-[0.22em] transition ${
                   !isManga || isActive ? 'bg-red-700 text-white' : 'text-gray-300 hover:text-white'
                 }`
               }
@@ -69,7 +81,7 @@ const Header = () => {
             <NavLink
               to={mangaPath}
               className={({ isActive }) =>
-                `rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] transition ${
+                `rounded-full px-2 py-1 text-xs font-semibold uppercase tracking-[0.22em] transition ${
                   isManga || isActive ? 'bg-white text-black' : 'text-gray-300 hover:text-white'
                 }`
               }
@@ -77,8 +89,8 @@ const Header = () => {
               M
             </NavLink>
           </div>
-          <nav className="ml-3">
-            <ul className="flex flex-wrap gap-4 text-sm">
+          <nav className="hidden md:block ml-3">
+            <ul className="flex flex-wrap gap-4 text-xs">
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
@@ -101,12 +113,26 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <SmallSearchBar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            placeholder={isManga ? 'Search manga...' : 'Search anime...'}
-            theme={isManga ? 'manga' : 'anime'}
-          />
+          <button
+            type="button"
+            onClick={() => {
+              setMobileSearchOpen((prev) => !prev);
+              setMobileNavOpen(false);
+            }}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white transition hover:bg-white/10 md:hidden"
+            aria-label={mobileSearchOpen ? 'Close search' : 'Open search'}
+          >
+            <Search className="h-5 w-5" />
+          </button>
+
+          <div className="hidden md:block">
+            <SmallSearchBar
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              placeholder={isManga ? 'Search manga...' : 'Search anime...'}
+              theme={isManga ? 'manga' : 'anime'}
+            />
+          </div>
           <Link
             to={isManga ? '/manga/profile' : '/profile'}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/20"
@@ -123,6 +149,45 @@ const Header = () => {
           </Link>
         </div>
       </div>
+
+      {mobileNavOpen && (
+        <div className="md:hidden border-t border-white/10 bg-black/95 px-4 py-3">
+          <ul className="flex flex-col gap-3 text-sm">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                onClick={() => setMobileNavOpen(false)}
+                className={({ isActive }) =>
+                  `block rounded-2xl px-4 py-3 transition ${
+                    isActive
+                      ? 'bg-rose-700/20 text-white'
+                      : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {mobileSearchOpen && (
+        <div className="md:hidden border-t border-white/10 px-4 py-3">
+            <div className="relative flex items-center">
+              <Search className="absolute left-4 h-4 w-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder={isManga ? 'Search manga...' : 'Search anime...'}
+                className="w-full rounded-2xl border border-white/10 bg-transparent py-3 pl-12 pr-4 text-sm text-white outline-none placeholder:text-gray-500"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                autoFocus
+              />
+            </div>
+          </div>
+      )}
     </div>
   );
 };
