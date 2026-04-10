@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { SmallSearchBar } from './searchbar.jsx';
 
 const buildNavItems = (isManga) => [
@@ -7,7 +7,6 @@ const buildNavItems = (isManga) => [
   { to: isManga ? '/manga/browse' : '/browse', label: isManga ? 'Manga List' : 'Anime List' },
   { to: isManga ? '/manga/community' : '/community', label: 'Community' },
   ...(isManga ? [] : [{ to: '/schedule', label: 'Schedule' }]),
-  { to: isManga ? '/manga/profile' : '/profile', label: 'Profile' }
 ];
 
 const mapModePath = (pathname, targetMode) => {
@@ -42,6 +41,8 @@ const Header = () => {
   const animePath = mapModePath(pathname, 'anime');
   const mangaPath = mapModePath(pathname, 'manga');
   const accountName = 'Steve';
+  const profileImage = null; // replace with actual user image URL when available
+  const profileInitial = accountName?.trim()?.charAt(0).toUpperCase() || 'U';
 
   return (
     <div
@@ -106,6 +107,20 @@ const Header = () => {
             placeholder={isManga ? 'Search manga...' : 'Search anime...'}
             theme={isManga ? 'manga' : 'anime'}
           />
+          <Link
+            to={isManga ? '/manga/profile' : '/profile'}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/20"
+          >
+            {profileImage ? (
+              <img
+                src={profileImage}
+                alt={`${accountName} avatar`}
+                className="h-full w-full rounded-full object-cover"
+              />
+            ) : (
+              profileInitial
+            )}
+          </Link>
         </div>
       </div>
     </div>
