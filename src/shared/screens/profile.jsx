@@ -124,7 +124,7 @@ const GridSection = ({
       </div>
 
       {pagedItems.length ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {pagedItems.map(renderCard)}
         </div>
       ) : (
@@ -278,7 +278,7 @@ const SharedProfile = () => {
               renderCard={(anime) => (
                 <div key={anime.profileEntryId} className="w-full min-w-0">
                   <p className="mb-2 text-xs text-gray-400">{anime.progressLabel}</p>
-                  <AnimeCard anime={anime} />
+                  <AnimeCard anime={anime} compact />
                 </div>
               )}
             />
@@ -294,7 +294,7 @@ const SharedProfile = () => {
               renderCard={(manga) => (
                 <div key={manga.profileEntryId} className="w-full min-w-0">
                   <p className="mb-2 text-xs text-gray-400">{manga.progressLabel}</p>
-                  <MangaCard manga={manga} />
+                  <MangaCard manga={manga} compact />
                 </div>
               )}
             />
@@ -330,7 +330,7 @@ const SharedProfile = () => {
                 renderCard={(anime) => (
                   <div key={anime.profileEntryId} className="w-full min-w-0">
                     <p className="mb-2 text-xs text-gray-400">{anime.profileStatus}</p>
-                    <AnimeCard anime={anime} />
+                    <AnimeCard anime={anime} compact />
                   </div>
                 )}
               />
@@ -367,7 +367,7 @@ const SharedProfile = () => {
                 renderCard={(manga) => (
                   <div key={manga.profileEntryId} className="w-full min-w-0">
                     <p className="mb-2 text-xs text-gray-400">{manga.profileStatus}</p>
-                    <MangaCard manga={manga} />
+                    <MangaCard manga={manga} compact />
                   </div>
                 )}
               />
