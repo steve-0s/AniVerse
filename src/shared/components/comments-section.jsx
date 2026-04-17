@@ -29,12 +29,12 @@ const CommentSection = ({
   const isManga = theme === 'manga';
   const shellClass = isManga ? 'bg-zinc-950/80' : 'bg-black/30';
   const commentShellClass = isManga ? 'bg-black' : 'bg-gray-900/70';
-  const accentTextClass = isManga ? 'text-white' : 'text-red-200';
-  const activeVoteClass = isManga ? 'text-white' : 'text-red-300';
-  const hoverVoteClass = isManga ? 'text-gray-400 hover:text-white' : 'text-gray-400 hover:text-red-300';
-  const fieldClass = isManga ? 'bg-black focus:border-white' : 'bg-gray-900 focus:border-red-700';
+  const accentTextClass = isManga ? 'text-[#F7ECE6]' : 'text-red-200';
+  const activeVoteClass = isManga ? 'text-[#F2A7BC]' : 'text-red-300';
+  const hoverVoteClass = isManga ? 'text-[#B89DA7] hover:text-[#F7ECE6]' : 'text-gray-400 hover:text-red-300';
+  const fieldClass = isManga ? 'bg-black focus:border-[#F2A7BC]' : 'bg-gray-900 focus:border-red-700';
   const actionButtonClass = isManga
-    ? 'bg-white text-black hover:bg-gray-200'
+    ? 'bg-[#F2A7BC] text-[#221B21] hover:bg-[#EE9BB3]'
     : 'bg-red-700 text-white hover:bg-red-600';
   const handleReplyChange = (commentId, value) => {
     setReplyDrafts((current) => ({
@@ -62,7 +62,7 @@ const CommentSection = ({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className={`text-2xl font-bold ${accentTextClass}`}>{title}</h3>
-          <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
+          <span className={`text-xs uppercase tracking-[0.18em] ${isManga ? 'text-gray-500' : 'text-gray-500'}`}>
             {sampleComments.length} comments
           </span>
         </div>
@@ -87,7 +87,10 @@ const CommentSection = ({
 
         <div className="space-y-4">
           {sampleComments.map((comment) => (
-            <article key={comment.id} className={`rounded-2xl border border-white/8 p-4 ${commentShellClass}`}>
+            <article
+              key={comment.id}
+              className={`rounded-2xl border border-white/8 p-4 ${commentShellClass}`}
+            >
               <div className="flex items-center gap-2 text-xs text-gray-400">
                 <span className={`font-semibold ${accentTextClass}`}>{comment.user}</span>
                 <span>{comment.time}</span>

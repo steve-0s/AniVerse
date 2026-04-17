@@ -7,7 +7,7 @@ const VolumeTabs = ({ volumes = [], selectedVolume, onSelect }) => {
           onClick={() => onSelect(volume)}
           className={`rounded-lg border px-3 py-2 text-sm transition ${
             selectedVolume === volume
-              ? 'border-white bg-white text-black'
+              ? 'border-[#F2A7BC] bg-[#F2A7BC] text-[#221B21]'
               : 'border-white/20 bg-zinc-900 text-gray-300 hover:border-white/70 hover:text-white'
           }`}
         >

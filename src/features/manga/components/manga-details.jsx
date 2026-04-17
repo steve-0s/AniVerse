@@ -29,7 +29,7 @@ const MangaDetails = () => {
           <div className="flex gap-2 pt-2">
             <Link
               to={`/manga/${manga.id}`}
-              className="rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-black transition hover:bg-gray-200"
+              className="rounded-md bg-[#F2A7BC] px-3 py-1.5 text-xs font-semibold text-[#221B21] transition hover:bg-[#EE9BB3]"
             >
               Go to Reader
             </Link>

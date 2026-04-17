@@ -55,7 +55,7 @@ const Spotlight = () => {
             <div className="mt-auto flex gap-4">
               <button
                 onClick={() => navigate(`/manga/${currentSpotlight.id}`)}
-                className="flex items-center rounded-md bg-white px-4 py-2 text-black transition hover:bg-gray-200"
+                className="flex items-center rounded-md bg-[#F2A7BC] px-4 py-2 text-[#221B21] transition hover:bg-[#EE9BB3]"
               >
                 <BookOpen size={18} className="mr-2" />
                 Read Now

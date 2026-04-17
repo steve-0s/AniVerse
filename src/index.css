@@ -4,14 +4,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1E1E1E;
+  --color-primary: #171412;
 
-  --color-light-100: #ffd1dc;
-  --color-light-200: #e5a9b8;
+  --color-light-100: #f4e4d7;
+  --color-light-200: #d8b8a7;
 
-  --color-gray-100: #b0a3a6;
+  --color-gray-100: #b5aaa3;
 
-  --color-dark-100: #1a0f11;
+  --color-dark-100: #241c19;
 
   --font-dm-sans: DM Sans, sans-serif;
 
@@ -24,7 +24,7 @@
   body {
     font-family: "DM Sans", serif;
     font-optical-sizing: auto;
-    background: #1E1E1E;
+    background: #171412;
     /* Hide scrollbar */
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -151,7 +151,7 @@
 }
 
 @utility text-gradient {
-  @apply bg-linear-to-r from-[#ffcfda] to-[#ff004f] bg-clip-text text-transparent;
+  @apply bg-linear-to-r from-[#ffffff] to-[red] bg-clip-text text-transparent;
 }
 
 @utility fancy-text {
@@ -183,4 +183,3 @@
     display: none;
   }
 }
-

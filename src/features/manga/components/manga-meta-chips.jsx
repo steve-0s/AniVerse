@@ -6,7 +6,7 @@ const MangaMetaChips = ({ genres = [], rating, year, status }) => {
       case 'completed':
         return 'border border-white/30 bg-white/10 text-white';
       case 'ongoing':
-        return 'border border-gray-500/60 bg-gray-700/30 text-gray-100';
+        return 'border border-[#F2A7BC]/35 bg-[#F2A7BC]/12 text-[#F7DCE5]';
       case 'hiatus':
         return 'border border-zinc-400/50 bg-zinc-500/10 text-zinc-200';
       default:
@@ -24,7 +24,7 @@ const MangaMetaChips = ({ genres = [], rating, year, status }) => {
 
       {rating && (
         <span className="flex items-center gap-1 rounded-full bg-zinc-800 px-2 py-1 text-white">
-          <Star color="#ffffff" fill="#ffffff" size={10} />
+          <Star color="#F2A7BC" fill="#F2A7BC" size={10} />
           {rating}
         </span>
       )}
