@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SakuraFall from '../effects/SakuraFall.jsx';
-import SearchBar from '../../../shared/components/searchbar.jsx';
+import SakuraFall from '../../features/app/effects/SakuraFall.jsx';
+import SearchBar from '../components/searchbar.jsx';
 
 const Landing = () => {
   const navigate = useNavigate();
