@@ -22,7 +22,7 @@ const AuthMain = () => {
       <div className="pattern" />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center py-10 text-center">
-        <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-black/80 p-6 shadow-2xl shadow-black/40 backdrop-blur-xl">
+        <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-black/60 p-6 shadow-xl shadow-black/40 backdrop-blur-sm">
           <div className="mb-6 flex justify-center">
             <NavLink to='/'>
               <img src="/images/AniVerse-logo.png" alt="AniVerse Logo" className="h-20 w-auto sm:h-24 cursor-pointer"/>
@@ -94,6 +94,11 @@ const RegisterForm = ({ onSwitch }) => (
       <input
         type="password"
         placeholder="Password"
+        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-red-600 focus:ring-1 focus:ring-red-600"
+      />
+      <input
+        type="password"
+        placeholder="Confirm Password"
         className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-red-600 focus:ring-1 focus:ring-red-600"
       />
       <button type="submit" className="w-full rounded-2xl bg-red-700 px-4 py-3 text-white transition hover:bg-red-600">
