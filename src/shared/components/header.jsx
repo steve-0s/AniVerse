@@ -40,9 +40,7 @@ const Header = () => {
   const navItems = buildNavItems(isManga);
   const animePath = mapModePath(pathname, 'anime');
   const mangaPath = mapModePath(pathname, 'manga');
-  const accountName = 'Steve';
-  const profileImage = null; // replace with actual user image URL when available
-  const profileInitial = accountName?.trim()?.charAt(0).toUpperCase() || 'U';
+  const user = null;
 
   return (
     <div
@@ -62,7 +60,7 @@ const Header = () => {
           </button>
 
           <NavLink to="/" className="flex items-center gap-2">
-            <img src="/images/AniVerse-logo.png" alt="Logo" className="h-16" />
+            <img src="/images/AniVerse-logo.png" alt="Logo" className="h-16 cursor-pointer" />
           </NavLink>
           <div className="flex items-center rounded-full border border-white/15 bg-black/70 p-1">
             <NavLink
@@ -130,20 +128,31 @@ const Header = () => {
               theme={isManga ? 'manga' : 'anime'}
             />
           </div>
-          <Link
-            to={isManga ? '/manga/profile' : '/profile'}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/20"
-          >
-            {profileImage ? (
-              <img
-                src={profileImage}
-                alt={`${accountName} avatar`}
-                className="h-full w-full rounded-full object-cover"
-              />
-            ) : (
-              profileInitial
-            )}
-          </Link>
+
+          {user ? (
+            <Link
+              to={isManga ? '/manga/profile' : '/profile'}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/20"
+            >
+              {user.profileImage ? (
+                <img
+                  src={user.profileImage}
+                  alt={`${user.name} avatar`}
+                  className="h-full w-full rounded-full object-cover"
+                />
+              ) : (
+                user.name?.trim()?.charAt(0).toUpperCase() || 'U'
+              )}
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="rounded-full px-3 py-2 text-white bg-red-800 text-sm hover:bg-red-700 transition"
+            >
+              Login
+            </Link>
+          )}
+          
         </div>
       </div>
 

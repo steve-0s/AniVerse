@@ -151,7 +151,7 @@
 }
 
 @utility text-gradient {
-  @apply bg-linear-to-r from-[#ffffff] to-[red] bg-clip-text text-transparent;
+  @apply bg-linear-to-r from-[#ffffff] to-[#ff004f] bg-clip-text text-transparent;
 }
 
 @utility fancy-text {

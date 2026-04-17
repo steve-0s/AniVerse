@@ -14,11 +14,13 @@ import NotFound from './shared/screens/not-found.jsx';
 import SharedCommunity from './shared/screens/community.jsx';
 import CommunityPostScreen from './shared/screens/community-post.jsx';
 import SharedProfile from './shared/screens/profile.jsx';
+import AuthMain from './shared/auth-screen/auth-screen.jsx';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<AuthMain />} />
       <Route path="/home" element={<Home />} />
       <Route path="/browse" element={<Browse />} />
       <Route path="/search" element={<SearchResults />} />

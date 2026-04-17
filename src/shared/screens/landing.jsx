@@ -67,7 +67,7 @@ const Landing = () => {
           />
 
           <h1 className="mt-4 max-w-[90%] text-3xl font-bold leading-tight text-white sm:max-w-2xl sm:text-4xl md:text-5xl lg:text-6xl">
-            Find <span className="text-gradient">Anime</span> You'll Enjoy
+            Discover <span className="text-gradient">Anime and Manga</span> You'll Enjoy
             without the Hassle
           </h1>
         </header>
