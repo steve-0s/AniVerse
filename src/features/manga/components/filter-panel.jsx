@@ -1,7 +1,7 @@
 const FilterPanel = ({ filters, setFilters, genres = [] }) => {
   return (
     <div className="rounded-xl border border-white/10 bg-zinc-950/80 p-4">
-      <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-white">Filters</h3>
+      <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-[#F2A7BC]">Filters</h3>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <select
           value={filters.genre}

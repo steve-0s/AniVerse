@@ -8,7 +8,7 @@ const ChapterList = ({ chapters = [], selectedChapter, onSelect }) => {
           className={`rounded-md border px-2 py-2 text-sm transition ${
             selectedChapter === chapter.id
               ? 'border-[#F2A7BC] bg-[#F2A7BC] text-[#221B21]'
-              : 'border-white/20 bg-zinc-900 text-gray-300 hover:border-white/70 hover:text-white'
+              : 'border-white/20 bg-zinc-900 text-gray-300 hover:border-[#F2A7BC] hover:text-[#F2A7BC]'
           }`}
           title={chapter.title}
         >

@@ -27,6 +27,7 @@ const MangaSearchResults = () => {
       <PageContainer
         title="Search Results"
         subtitle={query ? `Showing manga matches for "${query}".` : 'Showing all manga.'}
+        theme="manga"
       >
         {results.length ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,7 +36,7 @@ const MangaSearchResults = () => {
             ))}
           </div>
         ) : (
-          <EmptyState title="No results found" message="Try another keyword or visit Browse." />
+          <EmptyState title="No results found" message="Try another keyword or visit Browse." theme="manga" />
         )}
       </PageContainer>
     </>

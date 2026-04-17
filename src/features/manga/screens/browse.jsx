@@ -42,7 +42,7 @@ const MangaBrowse = () => {
   return (
     <>
       <Header />
-      <PageContainer title="Browse Manga" subtitle="Explore by genre, status, and critical acclaim.">
+      <PageContainer title="Browse Manga" subtitle="Explore by genre, status, and critical acclaim." theme="manga">
         <FilterPanel filters={filters} setFilters={setFilters} genres={genres} />
 
         <section className="mt-5">
@@ -53,7 +53,7 @@ const MangaBrowse = () => {
               ))}
             </div>
           ) : (
-            <EmptyState title="No manga match your filters" />
+            <EmptyState title="No manga match your filters" theme="manga" />
           )}
         </section>
 

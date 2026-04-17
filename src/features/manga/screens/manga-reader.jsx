@@ -55,10 +55,10 @@ const MangaReader = () => {
         </div>
 
         <aside className="space-y-4 rounded-xl border border-white/10 bg-zinc-950/80 p-4">
-          <h3 className="text-lg font-bold text-white">Volumes</h3>
+          <h3 className="text-lg font-bold text-[#F2A7BC]">Volumes</h3>
           <VolumeTabs volumes={availableVolumes} selectedVolume={selectedVolume} onSelect={handleVolumeSelect} />
 
-          <h3 className="pt-2 text-lg font-bold text-white">Chapters</h3>
+          <h3 className="pt-2 text-lg font-bold text-[#F2A7BC]">Chapters</h3>
           <ChapterList chapters={chapters} selectedChapter={selectedChapter} onSelect={setSelectedChapter} />
         </aside>
       </div>

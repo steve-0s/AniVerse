@@ -9,17 +9,21 @@ const MangaProfile = () => {
   return (
     <>
       <Header />
-      <PageContainer title="Reading Profile" subtitle="Your saved list, progress, and quiet late-night recommendations.">
+      <PageContainer
+        title="Reading Profile"
+        subtitle="Your saved list, progress, and quiet late-night recommendations."
+        theme="manga"
+      >
         <section className="rounded-xl border border-white/10 bg-zinc-950/80 p-4">
-          <h3 className="text-xl font-bold text-white">Continue Reading</h3>
+          <h3 className="text-xl font-bold text-[#F2A7BC]">Continue Reading</h3>
           <p className="mt-2 text-sm text-gray-300">Resume from: Berserk, Volume 2 Chapter 11 (placeholder)</p>
         </section>
 
         <div className="mt-6">
           <section className="space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-2xl font-bold text-white">My Library</h3>
-              <Link to="/manga/browse" className="text-sm text-gray-300 transition hover:text-white">
+              <h3 className="text-2xl font-bold text-[#F2A7BC]">My Library</h3>
+              <Link to="/manga/browse" className="text-sm text-[#D7C5CD] transition hover:text-[#F2A7BC]">
                 View all
               </Link>
             </div>

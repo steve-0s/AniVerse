@@ -8,8 +8,8 @@ const TrendingManga = () => {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-white">Trending Manga</h3>
-        <Link to="/manga/browse" className="text-sm text-gray-300 transition hover:text-white">
+        <h3 className="text-2xl font-bold text-[#F2A7BC]">Trending Manga</h3>
+        <Link to="/manga/browse" className="text-sm text-[#D7C5CD] transition hover:text-[#F2A7BC]">
           View all
         </Link>
       </div>

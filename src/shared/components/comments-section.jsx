@@ -29,12 +29,12 @@ const CommentSection = ({
   const isManga = theme === 'manga';
   const shellClass = isManga ? 'bg-zinc-950/80' : 'bg-black/30';
   const commentShellClass = isManga ? 'bg-black' : 'bg-gray-900/70';
-  const accentTextClass = isManga ? 'text-[#F7ECE6]' : 'text-red-200';
+  const accentTextClass = isManga ? 'text-[#F2A7BC]' : 'text-red-200';
   const activeVoteClass = isManga ? 'text-[#F2A7BC]' : 'text-red-300';
-  const hoverVoteClass = isManga ? 'text-[#B89DA7] hover:text-[#F7ECE6]' : 'text-gray-400 hover:text-red-300';
+  const hoverVoteClass = isManga ? 'text-[#D7C5CD] hover:text-[#F2A7BC]' : 'text-gray-400 hover:text-red-300';
   const fieldClass = isManga ? 'bg-black focus:border-[#F2A7BC]' : 'bg-gray-900 focus:border-red-700';
   const actionButtonClass = isManga
-    ? 'bg-[#F2A7BC] text-[#221B21] hover:bg-[#EE9BB3]'
+    ? 'bg-[#F2A7BC] text-[#221B21] hover:bg-[#F7DCE5]'
     : 'bg-red-700 text-white hover:bg-red-600';
   const handleReplyChange = (commentId, value) => {
     setReplyDrafts((current) => ({

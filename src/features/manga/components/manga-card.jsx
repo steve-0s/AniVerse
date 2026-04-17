@@ -3,7 +3,7 @@ import MangaMetaChips from './manga-meta-chips.jsx';
 
 const MangaCard = ({ manga, compact = false }) => {
   return (
-    <article className="group h-full overflow-hidden rounded-xl border border-white/10 bg-zinc-950/70 transition hover:border-white/40">
+    <article className="group h-full overflow-hidden rounded-xl border border-white/10 bg-zinc-950/70 transition hover:border-[#F2A7BC]">
       <div className={`relative w-full bg-gradient-to-br from-zinc-900 via-black to-zinc-800 ${compact ? 'h-36' : 'h-44'}`}>
         {manga.image ? (
           <img src={manga.image} alt={manga.title} className="h-full w-full object-cover opacity-75 grayscale" />
@@ -21,13 +21,13 @@ const MangaCard = ({ manga, compact = false }) => {
         <div className="flex flex-wrap gap-2 pt-1">
           <Link
             to={`/manga/${manga.id}`}
-            className={`rounded-md bg-[#F2A7BC] ${compact ? 'px-2 py-1 text-[0.65rem]' : 'px-3 py-1.5 text-xs'} font-semibold text-[#221B21] transition hover:bg-[#EE9BB3]`}
+            className={`rounded-md bg-[#F2A7BC] ${compact ? 'px-2 py-1 text-[0.65rem]' : 'px-3 py-1.5 text-xs'} font-semibold text-[#221B21] transition hover:bg-[#F7DCE5]`}
           >
             Read
           </Link>
           <Link
             to={`/manga/${manga.id}/details`}
-            className={`rounded-md border border-white/20 ${compact ? 'px-2 py-1 text-[0.65rem]' : 'px-3 py-1.5 text-xs'} font-semibold text-gray-100 transition hover:border-white hover:text-white`}
+            className={`rounded-md border border-white/20 ${compact ? 'px-2 py-1 text-[0.65rem]' : 'px-3 py-1.5 text-xs'} font-semibold text-gray-200 transition hover:border-[#F2A7BC] hover:text-[#F2A7BC]`}
           >
             Details
           </Link>

@@ -8,7 +8,7 @@ const UpcomingReleases = () => {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-white">Upcoming Releases</h3>
+        <h3 className="text-2xl font-bold text-[#F2A7BC]">Upcoming Releases</h3>
       </div>
 
       <div className="no-scrollbar overflow-x-auto">

@@ -79,7 +79,7 @@ const Header = () => {
               to={mangaPath}
               className={({ isActive }) =>
                 `rounded-full px-2 py-1 text-xs font-semibold uppercase tracking-[0.22em] transition ${
-                  isManga || isActive ? 'bg-white text-black' : 'text-gray-300 hover:text-white'
+                  isManga || isActive ? 'bg-[#F2A7BC] text-[#221B21]' : 'text-gray-300 hover:text-[#F2A7BC]'
                 }`
               }
             >
@@ -95,10 +95,10 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive
                       ? isManga
-                        ? 'text-white'
+                        ? 'text-[#F2A7BC]'
                         : 'text-red-400'
                       : isManga
-                        ? 'cursor-pointer text-gray-300 transition-colors hover:text-white'
+                        ? 'cursor-pointer text-gray-300 transition-colors hover:text-[#F2A7BC]'
                         : 'cursor-pointer text-gray-300 transition-colors hover:text-red-400'
                   }
                 >
@@ -158,8 +158,8 @@ const Header = () => {
                 className={({ isActive }) =>
                   `block rounded-2xl px-4 py-3 transition ${
                     isActive
-                      ? 'bg-rose-700/20 text-white'
-                      : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                      ? 'bg-[#F2A7BC]/20 text-[#F2A7BC]'
+                      : 'text-gray-300 hover:bg-white/10 hover:text-[#F2A7BC]'
                   }`
                 }
               >

@@ -18,7 +18,7 @@ const MangaDetails = () => {
         </div>
 
         <div className="flex flex-col gap-4 text-white">
-          <h2 className="text-2xl font-bold">{manga.title}</h2>
+          <h2 className="text-2xl font-bold text-white">{manga.title}</h2>
           <MangaMetaChips genres={manga.genres} rating={manga.rating} year={manga.year} status={manga.status} />
           <p className="text-sm text-gray-300">{manga.description}</p>
           <div className="flex flex-wrap gap-4 text-xs text-gray-400">
@@ -29,11 +29,11 @@ const MangaDetails = () => {
           <div className="flex gap-2 pt-2">
             <Link
               to={`/manga/${manga.id}`}
-              className="rounded-md bg-[#F2A7BC] px-3 py-1.5 text-xs font-semibold text-[#221B21] transition hover:bg-[#EE9BB3]"
+              className="rounded-md bg-[#F2A7BC] px-3 py-1.5 text-xs font-semibold text-[#221B21] transition hover:bg-[#F7DCE5]"
             >
               Go to Reader
             </Link>
-            <button className="rounded-md border border-white/20 px-3 py-1.5 text-xs font-semibold text-gray-200 transition hover:border-white">
+            <button className="rounded-md border border-white/20 px-3 py-1.5 text-xs font-semibold text-gray-200 transition hover:border-[#F2A7BC] hover:text-[#F2A7BC]">
               Add to Library
             </button>
           </div>

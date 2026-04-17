@@ -7,7 +7,7 @@ const MangaDetailsScreen = () => {
   return (
     <>
       <Header />
-      <PageContainer title="Manga Details" subtitle="Synopsis, metadata, and reader discussion.">
+      <PageContainer title="Manga Details" subtitle="Synopsis, metadata, and reader discussion." theme="manga">
         <MangaDetails />
         <CommentSection theme="manga" title="Reader Discussion" placeholder="Talk about this manga..." />
       </PageContainer>
