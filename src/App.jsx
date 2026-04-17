@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Landing from './features/app/screens/landing.jsx';
+import Landing from './shared/screens/landing.jsx';
 import Home from './features/anime/screens/home.jsx';
 import AnimePlayer from './features/anime/screens/anime-player.jsx';
 import AnimeWatchScreen from './features/anime/screens/anime-details-screen.jsx';
@@ -10,7 +10,7 @@ import MangaBrowse from './features/manga/screens/browse.jsx';
 import MangaSearchResults from './features/manga/screens/search-results.jsx';
 import MangaReader from './features/manga/screens/manga-reader.jsx';
 import MangaDetailsScreen from './features/manga/screens/manga-details-screen.jsx';
-import NotFound from './features/app/screens/not-found.jsx';
+import NotFound from './shared/screens/not-found.jsx';
 import SharedCommunity from './shared/screens/community.jsx';
 import CommunityPostScreen from './shared/screens/community-post.jsx';
 import SharedProfile from './shared/screens/profile.jsx';
